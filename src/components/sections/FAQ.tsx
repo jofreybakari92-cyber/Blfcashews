@@ -1,11 +1,31 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const faqs = [
-  { q: "Where do your cashews come from?", a: "All our cashews are grown and hand-picked in Tanzania, primarily from the Mtwara and Lindi regions known for the world's finest kernels." },
-  { q: "How do I place an order?", a: "Simply click any 'Order Now' button or message us directly on WhatsApp. We'll confirm your order, share payment details, and arrange delivery." },
-  { q: "Do you ship internationally?", a: "Yes! We ship across East Africa and worldwide. Contact us on WhatsApp for shipping rates to your country." },
-  { q: "How are the cashews packaged?", a: "Each pack is vacuum-sealed in food-grade pouches to lock in freshness and that signature crunch." },
-  { q: "Do you offer wholesale pricing?", a: "Absolutely. We supply supermarkets, cafés, and resellers at preferential rates. Reach out via WhatsApp for our wholesale catalog." },
+  {
+    q: "Where do your cashews come from?",
+    a: "All our cashews are grown and hand-picked in Tanzania, primarily from the Mtwara and Lindi regions known for the world's finest kernels.",
+  },
+  {
+    q: "How do I place an order?",
+    a: "Simply click any 'Order Now' button or message us directly on WhatsApp. We'll confirm your order, share payment details, and arrange delivery.",
+  },
+  {
+    q: "Do you ship internationally?",
+    a: "Yes! We ship across East Africa and worldwide. Contact us on WhatsApp for shipping rates to your country.",
+  },
+  {
+    q: "How are the cashews packaged?",
+    a: "Each pack is vacuum-sealed in food-grade pouches to lock in freshness and that signature crunch.",
+  },
+  {
+    q: "Do you offer wholesale pricing?",
+    a: "Absolutely. We supply supermarkets, cafés, and resellers at preferential rates. Reach out via WhatsApp for our wholesale catalog.",
+  },
 ];
 
 export function FAQ() {
@@ -24,9 +44,7 @@ export function FAQ() {
               <AccordionTrigger className="text-left font-display text-lg font-semibold hover:text-primary">
                 {f.q}
               </AccordionTrigger>
-              <AccordionContent className="text-base text-muted-foreground">
-                {f.a}
-              </AccordionContent>
+              <AccordionContent className="text-base text-muted-foreground">{f.a}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>

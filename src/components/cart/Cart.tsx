@@ -10,7 +10,12 @@ function buildMessage(items: Record<string, number>, total: number) {
     if (!p) continue;
     lines.push(`• ${p.name} (${p.unit}) × ${qty} — ${formatTSh(p.price * qty)}`);
   }
-  lines.push("", `*Total: ${formatTSh(total)}*`, "", "Please confirm availability and delivery. Asante!");
+  lines.push(
+    "",
+    `*Total: ${formatTSh(total)}*`,
+    "",
+    "Please confirm availability and delivery. Asante!",
+  );
   return lines.join("\n");
 }
 
@@ -44,7 +49,9 @@ export function CartDrawer() {
         <SheetHeader className="border-b border-border px-6 py-5">
           <SheetTitle className="font-display text-2xl">Your Order</SheetTitle>
           <p className="text-sm text-muted-foreground">
-            {empty ? "Add some cashews to get started." : `${count} item${count > 1 ? "s" : ""} ready to send.`}
+            {empty
+              ? "Add some cashews to get started."
+              : `${count} item${count > 1 ? "s" : ""} ready to send.`}
           </p>
         </SheetHeader>
 
@@ -65,10 +72,16 @@ export function CartDrawer() {
                   <li key={id} className="flex items-center gap-4 py-4">
                     <div className="flex-1">
                       <div className="font-display font-semibold">{p.name}</div>
-                      <div className="text-xs text-muted-foreground">{formatTSh(p.price)} / {p.unit}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {formatTSh(p.price)} / {p.unit}
+                      </div>
                     </div>
                     <div className="flex items-center gap-1 rounded-full border border-border bg-card">
-                      <button onClick={() => remove(id)} aria-label="Decrease" className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-muted">
+                      <button
+                        onClick={() => remove(id)}
+                        aria-label="Decrease"
+                        className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-muted"
+                      >
                         <Minus className="h-3.5 w-3.5" />
                       </button>
                       <input
@@ -79,11 +92,17 @@ export function CartDrawer() {
                         onChange={(e) => setQty(id, parseInt(e.target.value, 10) || 0)}
                         className="w-8 bg-transparent text-center text-sm font-semibold outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none"
                       />
-                      <button onClick={() => add(id)} aria-label="Increase" className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-muted">
+                      <button
+                        onClick={() => add(id)}
+                        aria-label="Increase"
+                        className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-muted"
+                      >
                         <Plus className="h-3.5 w-3.5" />
                       </button>
                     </div>
-                    <div className="w-20 text-right font-semibold text-primary">{formatTSh(p.price * qty)}</div>
+                    <div className="w-20 text-right font-semibold text-primary">
+                      {formatTSh(p.price * qty)}
+                    </div>
                   </li>
                 );
               })}
@@ -95,9 +114,13 @@ export function CartDrawer() {
           <div className="border-t border-border bg-card/50 px-6 py-5">
             <div className="flex items-center justify-between">
               <span className="text-sm text-muted-foreground">Total</span>
-              <span className="font-display text-2xl font-bold text-primary">{formatTSh(total)}</span>
+              <span className="font-display text-2xl font-bold text-primary">
+                {formatTSh(total)}
+              </span>
             </div>
-            <p className="mt-1 text-xs text-muted-foreground">Delivery calculated on WhatsApp based on your location.</p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              Delivery calculated on WhatsApp based on your location.
+            </p>
             <a
               href={waLink(message)}
               target="_blank"
@@ -140,11 +163,19 @@ export function QtyStepper({ id }: { id: string }) {
   return (
     <div className="mt-4 flex items-center gap-2">
       <div className="flex flex-1 items-center justify-between rounded-full border border-primary/30 bg-primary/5 px-2 py-1.5">
-        <button onClick={() => remove(id)} aria-label="Decrease" className="flex h-8 w-8 items-center justify-center rounded-full text-primary hover:bg-primary/10">
+        <button
+          onClick={() => remove(id)}
+          aria-label="Decrease"
+          className="flex h-8 w-8 items-center justify-center rounded-full text-primary hover:bg-primary/10"
+        >
           <Minus className="h-4 w-4" />
         </button>
         <span className="font-display text-base font-bold text-primary">{qty}</span>
-        <button onClick={() => add(id)} aria-label="Increase" className="flex h-8 w-8 items-center justify-center rounded-full text-primary hover:bg-primary/10">
+        <button
+          onClick={() => add(id)}
+          aria-label="Increase"
+          className="flex h-8 w-8 items-center justify-center rounded-full text-primary hover:bg-primary/10"
+        >
           <Plus className="h-4 w-4" />
         </button>
       </div>

@@ -12,7 +12,6 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { Footer } from "@/components/sections/Footer";
 import { AIRecommendations } from "@/components/ai/AIRecommendations";
-import { AIChatbot } from "@/components/ai/AIChatbot";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -51,7 +50,6 @@ function Index() {
         </main>
         <Footer />
         <ContactFab />
-        <AIChatbot />
         <CartDrawer />
       </div>
     </CartProvider>

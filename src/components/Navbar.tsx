@@ -37,9 +37,16 @@ export function Navbar() {
             scrolled ? "w-[25vw]" : "w-[45vw]"
           } min-w-fit gap-16 flex items-center justify-between bg-amber-900/90 dark:bg-amber-950/90 backdrop-blur-xl border border-amber-800/30 px-6 py-2.5 rounded-full shadow-2xl transition-all duration-300 ease-in-out`}
         >
-          <div className="flex items-center bg-amber-50 px-4 py-1.5 rounded-full">
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="flex items-center bg-amber-50 px-4 py-1.5 rounded-full hover:opacity-80 transition-opacity cursor-pointer"
+          >
             <img src={blfLogo} alt="BLF Logo" className="h-6 w-auto" />
-          </div>
+          </a>
 
           <nav className="hidden items-center gap-8 md:flex">
             {links.map((l) => (

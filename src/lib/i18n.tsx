@@ -1,6 +1,19 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
 
-type Lang = "en" | "sw";
+type Lang =
+  | "en"
+  | "sw"
+  | "es"
+  | "fr"
+  | "de"
+  | "it"
+  | "pt"
+  | "ru"
+  | "zh"
+  | "ja"
+  | "ko"
+  | "ar"
+  | "hi";
 type Theme = "light" | "dark";
 
 const translations = {
@@ -242,17 +255,22 @@ const ThemeContext = createContext<ThemeContextType>({
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(() => {
-    const saved = localStorage.getItem("theme") as Theme | null;
-    return saved ?? "dark";
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("theme") as Theme | null;
+      return saved ?? "dark";
+    }
+    return "dark";
   });
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", theme);
+      const root = document.documentElement;
+      if (theme === "dark") {
+        root.classList.add("dark");
+      } else {
+        root.classList.remove("dark");
+      }
     }
   }, [theme]);
 

@@ -18,7 +18,9 @@ export function Products() {
     <section id="products" className="relative bg-secondary/40 py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <div className="text-xs font-medium uppercase tracking-[0.3em] text-accent">Our Collection</div>
+          <div className="text-xs font-medium uppercase tracking-[0.3em] text-accent">
+            Our Collection
+          </div>
           <h2 className="mt-4 font-display text-4xl font-bold leading-tight md:text-5xl">
             A flavor for every <span className="text-gradient-gold">craving</span>
           </h2>
@@ -52,7 +54,8 @@ export function Products() {
                   <h3 className="font-display text-xl font-bold">{p.name}</h3>
                   <p className="mt-2 flex-1 text-sm text-muted-foreground">{m.desc}</p>
                   <div className="mt-4 font-display text-lg font-semibold text-primary">
-                    {formatTSh(p.price)} <span className="text-xs font-normal text-muted-foreground">/ {p.unit}</span>
+                    {formatTSh(p.price)}{" "}
+                    <span className="text-xs font-normal text-muted-foreground">/ {p.unit}</span>
                   </div>
                   <QtyStepper id={p.id} />
                 </div>

@@ -60,5 +60,4 @@ export function useCart() {
   return c;
 }
 
-export const formatTSh = (n: number) =>
-  "TSh " + n.toLocaleString("en-US");
+export const formatTSh = (n: number) => "TSh " + n.toLocaleString("en-US");
