@@ -12,4 +12,12 @@ export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
+  vite: {
+    resolve: {
+      alias: {
+        // Polyfill node:events for Cloudflare Workers compatibility
+        "node:events": "/src/compat/events.js",
+      },
+    },
+  },
 });
